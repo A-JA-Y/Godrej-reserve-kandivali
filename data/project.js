@@ -12,6 +12,10 @@ export const SITE_URL = (
   (productionHost ? `https://${productionHost}` : "http://localhost:3000")
 ).replace(/\/+$/, "");
 
+// Absolute URL of a page for JSON-LD. Pages are exported as folders (trailingSlash in
+// next.config.ts), so page URLs end in "/" like their canonical URLs.
+export const absolutePageUrl = (path) => `${SITE_URL}${path.replace(/\/?$/, "/")}`;
+
 export const SITE_NAME = "Godrej Reserve Kandivali";
 
 export const OG_IMAGE = {

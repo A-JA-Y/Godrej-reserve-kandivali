@@ -17,6 +17,10 @@ const nextConfig: NextConfig = {
   // Static HTML export: `next build` writes the whole site to out/
   output: "export",
 
+  // Export each page as a folder (out/about/index.html served at /about/) so the
+  // site works on any static host, including Apache/cPanel without rewrite rules
+  trailingSlash: true,
+
   // The default image optimizer needs a Node server, so serve images as-is
   images: {
     unoptimized: true,

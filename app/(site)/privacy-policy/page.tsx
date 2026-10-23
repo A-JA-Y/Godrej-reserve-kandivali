@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { MAHARERA_URL, PARTNER, RERA_WINGS } from "@/data/project";
@@ -78,9 +79,9 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-lg font-semibold text-gray-900 mb-3">Contact</h2>
             <p>
               For any queries regarding this website, please visit our{" "}
-              <a href="/contact-us" className="text-[#DCA54A] hover:underline">
+              <Link href="/contact-us" className="text-[#DCA54A] hover:underline">
                 Contact Us
-              </a>{" "}
+              </Link>{" "}
               page or call {PARTNER.phoneDisplay}.
             </p>
           </div>

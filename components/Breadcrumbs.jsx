@@ -1,6 +1,6 @@
 import Link from "next/link";
 import JsonLd from "./JsonLd";
-import { SITE_URL } from "@/data/project";
+import { absolutePageUrl } from "@/data/project";
 
 // Visible breadcrumb trail plus the matching BreadcrumbList JSON-LD.
 // `items` lists the crumbs after Home, e.g. [{ name: "Price", path: "/price" }].
@@ -17,7 +17,7 @@ export default function Breadcrumbs({ items }) {
             "@type": "ListItem",
             position: i + 1,
             name: item.name,
-            item: `${SITE_URL}${item.path}`,
+            item: absolutePageUrl(item.path),
           })),
         }}
       />

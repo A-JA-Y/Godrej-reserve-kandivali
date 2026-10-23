@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import path from "path";
 import fs from "fs";
-import { PARTNER, SITE_NAME, SITE_URL } from "@/data/project";
+import { PARTNER, SITE_NAME, SITE_URL, absolutePageUrl } from "@/data/project";
 
 type Params = Promise<{ slug: string }>;
 
@@ -114,7 +114,7 @@ export default async function NewsDetail({ params }: { params: Params }) {
   // If MDX content is not found, we can still show metadata but body will be empty or we can use fallback
   // For now, let's treat missing MDX as notFound if that's the intended way
 
-  const pageUrl = `${SITE_URL}/news/${slug}`;
+  const pageUrl = absolutePageUrl(`/news/${slug}`);
   const imageUrl = typeof news.image === "string" ? news.image : "";
 
   /* ── Breadcrumb Schema ── */
@@ -132,7 +132,7 @@ export default async function NewsDetail({ params }: { params: Params }) {
         "@type": "ListItem",
         position: 2,
         name: "News",
-        item: `${SITE_URL}/news`,
+        item: absolutePageUrl("/news"),
       },
       {
         "@type": "ListItem",
