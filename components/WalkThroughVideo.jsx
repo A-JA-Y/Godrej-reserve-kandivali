@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 const LiteYT = dynamic(() => import("@/components/LiteYT"), {
   ssr: false,
 });
-export default function WalkthroughSection() {
+export default function WalkthroughSection({ videoId }) {
   return (
     <section className="w-full bg-[#FAF8F4] py-16 px-6" id="walkthrough">
       <div className="max-w-5xl mx-auto flex flex-col gap-10">
@@ -15,23 +15,23 @@ export default function WalkthroughSection() {
           </h6>
 
           <h2 className="text-3xl   md:text-4xl font-bold text-gray-900">
-            Experience the Project Virtually
+            Experience Godrej Reserve Virtually
           </h2>
 
           <p className="text-gray-600 text-sm mt-3 max-w-xl mx-auto">
-            Take a guided video tour of the township, amenities, and residences
-            to get a real feel of the lifestyle and layout.
+            Take a video tour of the towers, podium greens, amenities and residences at Godrej
+            Reserve, Kandivali East.
           </p>
         </div>
 
-        
+
         <div className="relative w-full rounded-xl overflow-hidden shadow-lg max-w-[720px] mx-auto">
           <div className="aspect-video w-full h-full">
-            <LiteYT />
+            <LiteYT videoId={videoId} />
           </div>
         </div>
 
-  
+
         <div className="text-center">
           <p className="text-sm text-gray-600 mb-3">
             Want complete details including pricing & plans?

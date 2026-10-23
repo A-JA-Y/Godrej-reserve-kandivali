@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import PageBanner from "@/components/PageBanner";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { MAHARERA_URL, PARTNER, RERA_WINGS } from "@/data/project";
+import { pageMetadata } from "@/utils/metadata";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy & Disclaimer | Godrej Golf Links",
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy Policy & Disclaimer | Godrej Reserve Kandivali",
   description:
-    "Privacy policy and disclaimer for Godrej Golf Links marketing website. Read terms of use and information disclaimer.",
-  alternates: { canonical: "https://www.godrejgolflink.in/privacy-policy" },
-};
+    "Privacy policy and disclaimer for the Godrej Reserve Kandivali channel-partner website. Read the terms of use and information disclaimer.",
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicyPage() {
   return (
     <>
+      <Breadcrumbs items={[{ name: "Privacy Policy", path: "/privacy-policy" }]} />
       <PageBanner
         eyebrow="Legal"
         title="Privacy Policy / Disclaimer"
@@ -22,9 +26,12 @@ export default function PrivacyPolicyPage() {
           <div>
             <h2 className="text-lg font-semibold text-gray-900 mb-3">Disclaimer</h2>
             <p>
-              This is not the official website of the developer. It belongs to the
-              authorised channel partner for information and marketing purposes only.
-              All rights for logos and images are reserved by the developer.
+              This website is operated by an authorised marketing/channel partner ({PARTNER.name})
+              and is not the official website of Godrej Properties Ltd. Prices are indicative
+              agreement values, exclude taxes and charges, and are subject to change without
+              notice. Images are artist&apos;s impressions. Information is compiled from publicly
+              available sources; verify all details with the developer and MahaRERA before
+              purchase. All rights for logos and images are reserved by the developer.
             </p>
             <p className="mt-3">
               By using or accessing this website you agree with the disclaimer without
@@ -33,6 +40,13 @@ export default function PrivacyPolicyPage() {
               are solely for informational purposes only, and the viewer has not relied
               on this information for making any booking or purchase in any project of
               the company.
+            </p>
+            <p className="mt-3">
+              MahaRERA:{" "}
+              {RERA_WINGS.map((w) => `${w.wing} ${w.number}`).join(" | ")} —{" "}
+              <a href={MAHARERA_URL} target="_blank" rel="noopener noreferrer" className="text-[#DCA54A] hover:underline">
+                https://maharera.maharashtra.gov.in
+              </a>
             </p>
           </div>
 
@@ -67,7 +81,7 @@ export default function PrivacyPolicyPage() {
               <a href="/contact-us" className="text-[#DCA54A] hover:underline">
                 Contact Us
               </a>{" "}
-              page or call +91 9810890353.
+              page or call {PARTNER.phoneDisplay}.
             </p>
           </div>
         </div>

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
-import logo150 from "../assets/godrej-logo.webp";
+import logo150 from "../assets/godrej-reserve-logo.webp";
 
 const menuItems = [
   { label: "OVERVIEW", href: "#overview" },
@@ -54,7 +54,7 @@ const Header = () => {
           >
             <Image
               src={logo150}
-              alt="Gaur Aero Suites"
+              alt="Godrej Reserve Kandivali"
               className="h-14 w-auto object-contain"
               sizes="(max-width: 768px) 80px, 80px"
               style={{ width: "67px", height: "auto" }}

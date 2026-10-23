@@ -1,27 +1,34 @@
 "use client";
+import Link from "next/link";
 import {
-  FaGolfBall,
   FaSwimmingPool,
+  FaWater,
   FaBuilding,
-  FaConciergeBell,
-  FaFilm,
+  FaTree,
+  FaLeaf,
   FaTableTennis,
-  FaSpa,
-  FaDumbbell,
-  FaHotel,
+  FaRunning,
+  FaTheaterMasks,
+  FaChild,
   FaShieldAlt,
 } from "react-icons/fa";
 
-import g1 from "@/assets/g-1.webp";
-import g2 from "@/assets/g-2.webp";
-import g3 from "@/assets/g-3.webp";
-import g4 from "@/assets/g-4.webp";
-import g5 from "@/assets/g-5.webp";
-import g6 from "@/assets/g-6.webp";
-import studioImg from "../assets/Studio-Apartments-Smart-Investment.webp";
+import poolEvening from "@/assets/clubhouse-pool-evening.webp";
+import springTerraces from "@/assets/zone-spring-terraces.webp";
+import forestRetreat from "@/assets/zone-forest-retreat.webp";
+import amphitheatre from "@/assets/amphitheatre.webp";
+import kidsPlay from "@/assets/kids-play-area.webp";
+import poolDeck from "@/assets/clubhouse-pool-deck.webp";
 
 
-const images = [studioImg, g1, g2, g3, g4, g5, g6];
+const images = [
+  { src: poolEvening, alt: "Pool and clubhouse at Godrej Reserve in the evening" },
+  { src: springTerraces, alt: "Pool deck and café pavilion in the Spring Terraces zone" },
+  { src: forestRetreat, alt: "Shaded lawns of the Forest Retreat zone" },
+  { src: amphitheatre, alt: "Stepped amphitheatre set in landscaped lawns" },
+  { src: kidsPlay, alt: "Kids' play area at Godrej Reserve" },
+  { src: poolDeck, alt: "Pool deck beside the clubhouse pavilion" },
+];
 import ImageSlider from "@/components/ImageSlider";
 
 
@@ -29,16 +36,16 @@ import bgImg from "../assets/Lines-PNG-Free-Image.webp";
 
 
 const amenities = [
-  { icon: <FaGolfBall />,       text: "9 Hole Golf Course" },
-  { icon: <FaSwimmingPool />,  text: "Swimming Centre with Indoor Heated Pool" },
-  { icon: <FaBuilding />,      text: "55,000 sq. ft. Clubhouse (4 Clubhouses)" },
-  { icon: <FaConciergeBell />, text: "Premium Concierge Service" },
-  { icon: <FaFilm />,          text: "Drive-in Cinema" },
-  { icon: <FaTableTennis />,   text: "Squash Courts" },
-  { icon: <FaSpa />,           text: "Spa & Salon by Warren Tricomi" },
-  { icon: <FaDumbbell />,      text: "Gymnasium by Holyfield Gymnasium" },
-  { icon: <FaHotel />,         text: "Hospitality by Spree" },
-  { icon: <FaShieldAlt />,     text: "24×7 Security & Surveillance" },
+  { icon: <FaSwimmingPool />, text: "Olympic-length lap pool & temperature-controlled pool" },
+  { icon: <FaWater />,        text: "Massage pool, kids' pool & aqua gym" },
+  { icon: <FaBuilding />,     text: "~57,000 sq.ft.* clubhouse" },
+  { icon: <FaTree />,         text: "~6 acres of two-level landscaped greens" },
+  { icon: <FaLeaf />,         text: "Four themed zones — Forest Retreat, Tropical Oasis, Spring Terraces & Green Acres" },
+  { icon: <FaTableTennis />,  text: "Squash, badminton & multi-sport courts" },
+  { icon: <FaRunning />,      text: "Cricket turf, jogging & cycling tracks" },
+  { icon: <FaTheaterMasks />, text: "500-seat* amphitheatre & mini theatre" },
+  { icon: <FaChild />,        text: "Kids' adventure play & crèche space" },
+  { icon: <FaShieldAlt />,    text: "Multi-tier security with CCTV & access control" },
 ];
 
 import { useModal } from "./ModalContext";
@@ -71,26 +78,26 @@ export default function Amenities() {
       />
 
       <div className="max-w-5xl mx-auto flex flex-col gap-10">
-        
+
         {/* Heading */}
         <div className="text-center">
           <h6 className="text-[#DCA54A] uppercase mb-4">
-            Luxurious Amenities
+            40+ Resort Amenities
           </h6>
           <h2 className="text-[#FDE6C0] text-3xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-3xl mx-auto">
-            Curated Amenities for a Complete Lifestyle Experience
+            An Endless Vacation, Every Day
           </h2>
         </div>
 
         {/* Content */}
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
-          
+
           {/* Left */}
           <div className="flex-1 flex flex-col gap-5">
             <p className="text-sm md:text-base leading-relaxed">
-              Experience a thoughtfully designed lifestyle with world-class
-              amenities at Godrej Golf Links. Every feature is crafted to offer
-              comfort, luxury, and convenience within a premium township.
+              Godrej Reserve backs its &ldquo;endless vacation&rdquo; promise with more than 40
+              amenities spread across the ~57,000 sq.ft.* clubhouse, the two-level podium greens
+              and the towers themselves.
             </p>
 
             <ul className="flex flex-col gap-[18px]">
@@ -104,24 +111,29 @@ export default function Amenities() {
               ))}
             </ul>
 
-            <p className="text-sm md:text-base leading-relaxed mt-1">
-              From wellness and recreation to entertainment and security, every
-              aspect is designed to elevate your everyday living experience.
+            <p className="text-xs leading-relaxed mt-1 text-[#FDE6C0]/80">
+              *As per project collateral; final amenity mix per Agreement for Sale.
             </p>
 
-            <div className="mt-3">
+            <div className="mt-3 flex flex-wrap items-center gap-5">
               <button
                 onClick={() => openModal()}
                 className="inline-block bg-[#c9a84c] text-[#fff] text-xs rounded-[8px] font-bold uppercase px-7 py-3 cursor-pointer hover:bg-[#b8933e] transition"
               >
                 Know More
               </button>
+              <Link
+                href="/amenities"
+                className="text-sm font-semibold text-[#DCA54A] hover:underline"
+              >
+                View all amenities →
+              </Link>
             </div>
           </div>
 
           {/* Right Image */}
          <div className="w-full lg:w-[50%]  h-[300px] md:h-[550px] flex-shrink-0">
-  <ImageSlider images={images} />
+  <ImageSlider images={images} caption="Artist's impression" />
 </div>
 
         </div>

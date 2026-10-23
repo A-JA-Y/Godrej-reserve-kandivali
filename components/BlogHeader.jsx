@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import logo150 from "../assets/godrej-logo.webp";
+import logo150 from "../assets/godrej-reserve-logo.webp";
 
 const menuItems = [
   { label: "HOME", href: "/" },
@@ -28,7 +28,7 @@ const BlogHeader = () => {
           <Link href="/" className="flex-shrink-0">
             <Image
               src={logo150}
-              alt="Godrej Logo"
+              alt="Godrej Reserve Kandivali"
               className="h-14 w-auto object-contain"
               sizes="(max-width: 768px) 80px, 80px"
               style={{ width: "auto", height: "auto" }}

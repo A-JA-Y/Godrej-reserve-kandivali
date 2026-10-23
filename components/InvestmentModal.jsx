@@ -99,7 +99,7 @@ const link = document.createElement("a");
           {/* h4 heading */}
           <h4 className="text-lg font-bold leading-snug mb-1">
             <mark className="bg-transparent text-[#c8952a]">
-              Download Godrej Golf Links - Brochure
+              Download Godrej Reserve Kandivali - Brochure
             </mark>
           </h4>
 

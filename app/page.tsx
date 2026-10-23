@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 // import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -5,110 +6,100 @@ import ReraStrip from "@/components/QRsectionsm";
 import ContactForm from "@/components/ContactForm";
 import ModalWrapper from "@/components/ModalWrapper";
 import HomePageHeader from "@/components/HomePageHeader";
+import JsonLd from "@/components/JsonLd";
+import { OG_IMAGE, PROJECT, SITE_URL, WALKTHROUGH_VIDEO_ID } from "@/data/project";
+import { pageMetadata } from "@/utils/metadata";
 
 // Lazy load below-the-fold components
 const AboutProject = dynamic(() => import("@/components/AboutProject"));
+const QuickFacts = dynamic(() => import("@/components/QuickFacts"));
+const WhyGodrejReserve = dynamic(() => import("@/components/WhyGodrejReserve"));
 const Amenities = dynamic(() => import("@/components/Amenities"));
-const GaurTownship = dynamic(() => import("@/components/GaurTownship"));
-const ReasonsToInvest = dynamic(() => import("@/components/ReasonToInvest"));
-const VillaFeatures = dynamic(() => import("@/components/PremiumInventory"));
-const PlansSection = dynamic(() => import("@/components/FloorPlan"));
+const ConfigurationsSnapshot = dynamic(() => import("@/components/ConfigurationsSnapshot"));
 const EmiCalculator = dynamic(() => import("@/components/EmiCalculator"));
 const LocationAdvantages = dynamic(() => import("@/components/LocationAdvantages"));
 const WalkThroughVideo = dynamic(() => import("@/components/WalkThroughVideo"));
 const BlogSection = dynamic(() => import("@/components/BlogSection"));
 const NewsSection = dynamic(() => import("@/components/NewsSection"));
+const FaqSection = dynamic(() => import("@/components/FaqSection"));
 const EnquirySection = dynamic(() => import("@/components/EnquirySection"));
-const QRSection = dynamic(() => import("@/components/QRSections"));
 const StickyDownloadButton = dynamic(() => import("@/components/StickyButton"));
 const Footer = dynamic(() => import("@/components/Footer"));
 const FloatingWhatsapp = dynamic(()=>import("@/components/FloatingWhatsapp"));
 const FloatingCall = dynamic(()=>import("@/components/FloatingcallButton"));
 
+export const metadata: Metadata = pageMetadata({
+  title: "Godrej Reserve Kandivali East, Mumbai | 3 & 4 BHK from ₹5.94 Cr*",
+  description:
+    "Godrej Reserve Kandivali — 18.6-acre luxury project by Godrej Properties on Akurli Road, Kandivali East. 3 & 4 BHK with private decks, 6 acres of greens, 40+ amenities. RERA approved. Possession June 2030.",
+  path: "/",
+  keywords: [
+    "godrej reserve kandivali",
+    "godrej reserve kandivali east",
+    "godrej reserve mumbai",
+    "godrej properties kandivali",
+    "luxury apartments in kandivali east",
+    "3 bhk in kandivali east",
+    "4 bhk in kandivali east",
+  ],
+});
+
+const amenityNames = [
+  "Olympic-length lap pool",
+  "Temperature-controlled pool",
+  "Massage pool",
+  "Kids' pool",
+  "Aqua gym",
+  "~57,000 sq.ft. clubhouse",
+  "~6 acres of landscaped open space",
+  "Squash court",
+  "Cricket turf",
+  "Amphitheatre",
+  "Jogging and cycling tracks",
+  "Multi-tier security with CCTV",
+];
+
+const residenceSchema = {
+  "@context": "https://schema.org",
+  "@type": ["ApartmentComplex", "Product"],
+  "@id": `${SITE_URL}/#residence`,
+  name: "Godrej Reserve",
+  description:
+    "18.6-acre residential development by Godrej Properties on Akurli Road, Kandivali East, Mumbai, with 3 & 4 BHK residences with private decks, ~6 acres of landscaped greens and 40+ amenities.",
+  url: `${SITE_URL}/`,
+  image: `${SITE_URL}${OG_IMAGE.url}`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: `${PROJECT.streetAddress}, ${PROJECT.locality}`,
+    addressLocality: PROJECT.city,
+    addressRegion: PROJECT.region,
+    postalCode: PROJECT.postalCode,
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: PROJECT.geo.latitude,
+    longitude: PROJECT.geo.longitude,
+  },
+  numberOfAccommodationUnits: { "@type": "QuantitativeValue", minValue: 1600 },
+  amenityFeature: amenityNames.map((name) => ({
+    "@type": "LocationFeatureSpecification",
+    name,
+    value: true,
+  })),
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "INR",
+    lowPrice: PROJECT.startingPriceValue,
+    description: "3 BHK from ₹5.94 Cr (indicative agreement value; taxes and charges extra)",
+  },
+};
+
 export default function Home() {
   return (
     <div className="w-full">
-      <h1 className="hidden">
-        Godrej Golf Links Greater Noida – Luxury Villas by Godrej Properties Greater Noida
-      </h1>
-
       {/* SCHEMA START */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org/",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: "https://www.godrejgolflink.in/",
-              },
-            ],
-          }),
-        }}
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "RealEstateAgent",
-            name: "Godrej Golf Links",
-            image: "https://www.godrejgolflink.in/godrej-hero.webp",
-            "@id": "https://www.godrejgolflink.in/",
-            url: "https://www.godrejgolflink.in/",
-            telephone: "",
-            priceRange: "₹3Cr+",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Godrej Golf Links",
-              addressLocality: "Greater Noida",
-              postalCode: "201301",
-              addressCountry: "IN",
-            },
-          }),
-        }}
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "Where is Godrej Golf Links located?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Godrej Golf Links is located in Greater Noida, Uttar Pradesh.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "What is the price of villas in Godrej Golf Links?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "The price of villas starts from approximately ₹3 Crore onwards.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Is Godrej Golf Links a good investment?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, due to its premium location, golf township concept, and brand value, it offers strong ROI potential.",
-                },
-              },
-            ],
-          }),
-        }}
-      />
+      <JsonLd data={residenceSchema} />
       {/* SCHEMA END */}
 
       <HomePageHeader />
@@ -124,19 +115,18 @@ export default function Home() {
 
         <ModalWrapper />
 
-        <AboutProject  heading={false}/>
+        <AboutProject />
+        <QuickFacts />
+        <WhyGodrejReserve />
         <Amenities />
-        <GaurTownship />
-        <ReasonsToInvest />
-        <VillaFeatures />
-        <PlansSection />
+        <ConfigurationsSnapshot />
         <EmiCalculator />
         <LocationAdvantages />
-        <WalkThroughVideo />
+        {WALKTHROUGH_VIDEO_ID && <WalkThroughVideo videoId={WALKTHROUGH_VIDEO_ID} />}
         <BlogSection />
         <NewsSection />
+        <FaqSection />
         <EnquirySection />
-        <QRSection />
       </main>
       <StickyDownloadButton />
       <FloatingCall />

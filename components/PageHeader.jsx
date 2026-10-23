@@ -5,7 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { siteNavLinks } from "@/data/siteNav";
-import logo150 from "../assets/godrej-logo.webp";
+import logo150 from "../assets/godrej-reserve-logo.webp";
+import { PARTNER } from "@/data/project";
 
 const GOLD = "#C49A2B";
 const GOLD_HOVER = "#A8841E";
@@ -28,7 +29,7 @@ export default function PageHeader() {
       {/* Utility strip */}
       <div className="w-full bg-[#1a1a1a] hidden lg:flex items-center justify-end gap-6 px-6 py-1.5 text-[11px] font-sans tracking-wide fixed top-0 left-0 right-0 z-30">
         <span className="text-[#666]">Mon–Sat · 10am–7pm</span>
-        <span className="text-[#C49A2B]">&#9742; +91 9810890353</span>
+        <span className="text-[#C49A2B]">&#9742; {PARTNER.phoneDisplay}</span>
       </div>
 
       {/* Main header */}
@@ -39,7 +40,7 @@ export default function PageHeader() {
           <Link href="/" className="flex-shrink-0 flex items-center gap-3">
             <Image
               src={logo150}
-              alt="Godrej Golf Links"
+              alt="Godrej Reserve Kandivali"
               priority
               style={{ width: "120px", height: "auto" }}
               sizes="120px"
@@ -125,7 +126,7 @@ export default function PageHeader() {
         style={{ width: "min(90vw, 360px)", backgroundColor: "#fff" }}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-[rgba(196,154,43,0.2)]">
-          <Image src={logo150} alt="Godrej Golf Links" style={{ width: "90px", height: "auto" }} sizes="90px" />
+          <Image src={logo150} alt="Godrej Reserve Kandivali" style={{ width: "90px", height: "auto" }} sizes="90px" />
           <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="text-[#888] hover:text-[#1a1a1a] text-xl">✕</button>
         </div>
 

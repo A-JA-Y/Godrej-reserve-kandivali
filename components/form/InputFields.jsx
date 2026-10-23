@@ -31,6 +31,40 @@ export const  InputField = ({ id, type = "text", placeholder, value, onChange, e
 
 
 
+export const SelectField = ({ id, value, onChange, options, placeholder, error }) => {
+  return (
+    <div className="flex flex-col gap-1">
+      <select
+        id={id}
+        value={value}
+        onChange={onChange}
+        className={[
+          "w-full rounded-md px-3 py-2.5",
+          theme.inputBg,
+          error ? theme.inputErrorBorder : theme.inputBorder,
+          theme.inputFocus,
+          value ? theme.inputText : "text-[#9A9070]",
+          theme.fontInput,
+          "transition-colors duration-200",
+          "border",
+        ].join(" ")}
+      >
+        <option value="">{placeholder}</option>
+        {options.map((option) => (
+          <option key={option} value={option} className={theme.inputText}>
+            {option}
+          </option>
+        ))}
+      </select>
+      {error && (
+        <span className={`${theme.textError} text-xs`}>{error}</span>
+      )}
+    </div>
+  );
+}
+
+
+
 export const TextareaField =({ id, placeholder, value, onChange, error, rows = 4 })=> {
   return (
     <div className="flex flex-col gap-1">

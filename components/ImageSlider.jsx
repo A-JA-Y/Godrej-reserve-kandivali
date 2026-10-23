@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
-export default function ImageSlider({images}) {
+// `images` is a list of { src, alt }; `caption` labels every slide (e.g. "Artist's impression").
+export default function ImageSlider({ images, caption }) {
   const [current, setCurrent] = useState(0);
   const intervalRef = useRef(null);
 
@@ -40,8 +41,8 @@ export default function ImageSlider({images}) {
       {images.map((img, index) => (
         <Image
           key={index}
-          src={img}
-          alt={`Amenity ${index + 1}`}
+          src={img.src}
+          alt={img.alt}
           className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
             index === current ? "opacity-100 z-10" : "opacity-0"
           }`}
@@ -52,9 +53,16 @@ export default function ImageSlider({images}) {
         />
       ))}
 
+      {caption && (
+        <span className="absolute top-3 right-3 z-20 bg-black/45 text-white text-[10px] px-2 py-0.5 rounded">
+          {caption}
+        </span>
+      )}
+
       {/* Left Button */}
       <button
         onClick={prevSlide}
+        aria-label="Previous image"
         className="absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70"
       >
         ‹
@@ -63,6 +71,7 @@ export default function ImageSlider({images}) {
       {/* Right Button */}
       <button
         onClick={nextSlide}
+        aria-label="Next image"
         className="absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-black/50 text-white px-3 py-2 rounded-full hover:bg-black/70"
       >
         ›
@@ -74,6 +83,7 @@ export default function ImageSlider({images}) {
           <button
             key={index}
             onClick={() => setCurrent(index)}
+            aria-label={`Show image ${index + 1}`}
             className={`w-3 h-3 rounded-full ${
               index === current ? "bg-white" : "bg-white/50"
             }`}

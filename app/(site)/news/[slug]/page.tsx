@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import path from "path";
 import fs from "fs";
+import { PARTNER, SITE_NAME, SITE_URL } from "@/data/project";
 
 type Params = Promise<{ slug: string }>;
 
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }: { params: Params }) {
 
   const title = news.metaTitle || news.title;
   const description = news.metaDescription || news.excerpt;
-  const url = `https://godrejgolflink.in/news/${slug}`;
+  const url = `/news/${slug}`;
   const imageUrl = typeof news.image === "string" ? news.image : "";
 
   return {
@@ -70,7 +71,7 @@ export async function generateMetadata({ params }: { params: Params }) {
       url: news.canonical || url,
       title,
       description,
-      siteName: "Godrej Golf Links",
+      siteName: SITE_NAME,
       locale: "en_IN",
       images: imageUrl
         ? [
@@ -113,7 +114,7 @@ export default async function NewsDetail({ params }: { params: Params }) {
   // If MDX content is not found, we can still show metadata but body will be empty or we can use fallback
   // For now, let's treat missing MDX as notFound if that's the intended way
 
-  const pageUrl = `https://godrejgolflink.in/news/${slug}`;
+  const pageUrl = `${SITE_URL}/news/${slug}`;
   const imageUrl = typeof news.image === "string" ? news.image : "";
 
   /* ── Breadcrumb Schema ── */
@@ -125,13 +126,13 @@ export default async function NewsDetail({ params }: { params: Params }) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://godrejgolflink.in/",
+        item: `${SITE_URL}/`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "News",
-        item: "https://godrejgolflink.in/news",
+        item: `${SITE_URL}/news`,
       },
       {
         "@type": "ListItem",
@@ -148,19 +149,16 @@ export default async function NewsDetail({ params }: { params: Params }) {
     "@type": "NewsArticle",
     headline: news.title,
     description: news.metaDescription || news.excerpt,
-    image: imageUrl || undefined,
+    image: imageUrl ? `${SITE_URL}${imageUrl}` : undefined,
     datePublished: news.date,
     dateModified: news.updatedAt || news.date,
     author: news.author
       ? { "@type": "Person", name: news.author }
-      : { "@type": "Organization", name: "Godrej Golf Links" },
+      : { "@type": "Organization", name: PARTNER.name },
     publisher: {
       "@type": "Organization",
-      name: "Godrej Golf Links",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://godrejgolflink.in/logo.png",
-      },
+      name: PARTNER.name,
+      url: `${SITE_URL}/`,
     },
     mainEntityOfPage: {
       "@type": "WebPage",

@@ -207,7 +207,7 @@ export function HeroBand({
 }: {
   label: string;
   title: string;
-  isH1:Boolean;
+  isH1?: boolean;
   sub: string;
   tags?: string[];
 }) {
@@ -302,13 +302,21 @@ export function PullQuote({ children }: { children: React.ReactNode }) {
    PRICE TABLE
 ───────────────────────────────────────────── */
 
-export function PriceTable({ rows }: { rows: PriceRow[] }) {
+export function PriceTable({
+  rows,
+  headers = ["Configuration", "Size Range", "Price Range", "Avg. Rate/sq. ft."],
+  note,
+}: {
+  rows: PriceRow[];
+  headers?: string[];
+  note?: string;
+}) {
   return (
     <div className="overflow-x-auto my-6">
       <table className="w-full border-collapse text-sm">
         <thead>
           <tr>
-            {["Configuration", "Size Range", "Price Range", "Avg. Rate/sq. ft."].map((h) => (
+            {headers.map((h) => (
               <th
                 key={h}
                 className="bg-emerald-800 text-white px-3.5 py-2.5 text-left font-medium text-[0.82rem]"
@@ -337,10 +345,7 @@ export function PriceTable({ rows }: { rows: PriceRow[] }) {
           ))}
         </tbody>
       </table>
-      <p className="text-[0.75rem] text-gray-400 mt-2">
-        Prices are indicative based on resale market data, April 2026.
-        Golf-facing and corner villas carry a 5–10% premium.
-      </p>
+      {note && <p className="text-[0.75rem] text-gray-400 mt-2">{note}</p>}
     </div>
   );
 }
