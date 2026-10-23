@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://godrejgolflink.in
-
-# Sitemaps
-Sitemap: https://godrejgolflink.in/sitemap.xml

@@ -4,6 +4,7 @@ import "./globals.css";
 import Script from "next/script";
 import "lite-youtube-embed/src/lite-yt-embed.css";
 import { Analytics } from '@vercel/analytics/next';
+import { OG_IMAGE, SITE_NAME, SITE_URL } from "@/data/project";
 
 
 
@@ -28,41 +29,28 @@ const workSans = Work_Sans({
 
 
 export const metadata: Metadata = {
-  title: "Godrej Golf Links Greater Noida | Villas by Godrej Properties Greater Noida",
+  metadataBase: new URL(SITE_URL),
+  title: "Godrej Reserve Kandivali East, Mumbai | 3 & 4 BHK from ₹5.94 Cr*",
   description:
-    "Godrej Golf Links Greater Noida offers premium villas, apartments & golf township living. Invest in Godrej Properties Greater Noida for luxury lifestyle & high ROI.",
-
-  alternates: {
-    canonical: "https://www.godrejgolflink.in/",
-  },
-
-  icons: {
-    icon: "/favicon.ico",
-  },
+    "Godrej Reserve Kandivali — 18.6-acre luxury project by Godrej Properties on Akurli Road, Kandivali East. 3 & 4 BHK with private decks, 6 acres of greens, 40+ amenities. RERA approved. Possession June 2030.",
 
   openGraph: {
-    title: "Godrej Golf Links Greater Noida",
+    title: "Godrej Reserve Kandivali East, Mumbai",
     description:
-      "Luxury villas & golf township in Greater Noida by Godrej Properties.",
-    url: "https://www.godrejgolflink.in/",
-    siteName: "Godrej Golf Links",
-    images: [
-      {
-        url: "https://www.godrejgolflink.in/godrej-hero.webp",
-        width: 1200,
-        height: 630,
-      },
-    ],
+      "3 & 4 BHK residences with private decks on an 18.6-acre Godrej Properties development in Kandivali East.",
+    url: "/",
+    siteName: SITE_NAME,
+    images: [OG_IMAGE],
     locale: "en_IN",
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Godrej Golf Links Greater Noida",
+    title: "Godrej Reserve Kandivali East, Mumbai",
     description:
-      "Premium villas in Greater Noida with golf township lifestyle.",
-    images: ["https://www.godrejgolflink.in/godrej-hero.webp"],
+      "3 & 4 BHK residences with private decks on an 18.6-acre Godrej Properties development in Kandivali East.",
+    images: [OG_IMAGE.url],
   },
 };
 

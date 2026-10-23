@@ -4,18 +4,26 @@ import { useRouter } from "next/navigation";
 import submitForm from "@/api/submitform";
 import { reportLeadConversion } from "@/utils/gtagConversion";
 import { theme } from "@/utils/theme";
-import { InputField, TextareaField } from "@/components/form/InputFields";
+import { InputField, SelectField, TextareaField } from "@/components/form/InputFields";
 import Image from "next/image";
-import logo from "@/assets/godrej-logo.webp";
+import logo from "@/assets/godrej-reserve-logo.webp";
+import { whatsappLink } from "@/data/project";
 
+const CONFIGURATION_OPTIONS = ["3 BHK", "4 BHK", "Retail"];
+
+// `detailed` adds the configuration and message fields used on the contact page;
+// `children` replaces the default WhatsApp cost-sheet link in the left column.
 export default function EnquirySection({
   logoSrc = logo,
-  logoAlt = "Godrej Golf Links",
-  heading = "31 Years Of Unfaltering Commitment",
-  body = "At Godrej Golf Links, luxury isn't just built — it's beautifully lived. We don't just create structures; we craft timeless experiences that become cherished memories. With every landmark we design, our commitment to excellence climbs higher, delivering not just homes, but lifestyles defined by elegance and distinction. Our visionary 'life-craftsmen' are handpicked for their exceptional ability to shape spaces that go beyond imagination. Step into a world where luxury knows no limits — step into the enduring legacy of Gaurs.",
+  logoAlt = "Godrej Reserve",
+  heading = "Book a Site Visit",
+  body = "Book a site visit to the Godrej Reserve sales lounge on Akurli Road.",
+  detailed = false,
+  submitLabel = "Schedule Site Visit",
+  children = /** @type {import("react").ReactNode} */ (null),
 }) {
   const router = useRouter();
-  const [form, setForm] = useState({ name: "", phone: "", email: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", configuration: "", message: "" });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -48,11 +56,12 @@ export default function EnquirySection({
     setLoading(true);
     setApiError("");
 
-    await submitForm({ data: form });
+    const { name, phone, email } = form;
+    await submitForm({ data: detailed ? form : { name, phone, email } });
     await reportLeadConversion();
 
     const link = document.createElement("a");
-      link.href = "/brochure.pdf"; 
+      link.href = "/brochure.pdf";
       link.setAttribute("download", "Brochure.pdf");
       document.body.appendChild(link);
       link.click();
@@ -76,10 +85,9 @@ export default function EnquirySection({
             <Image
               src={logoSrc}
               alt={logoAlt}
-              width={100}
-              height={89}
-              className="w-auto object-contain self-start max-w-[100px]"
-              priority
+              width={150}
+              height={66}
+              className="w-auto object-contain self-start max-w-[150px]"
             />
           </div>
 
@@ -88,6 +96,17 @@ export default function EnquirySection({
 
           {/* Body */}
           <p className={`${theme.fontBody} ${theme.textSecondary}`}>{body}</p>
+
+          {children ?? (
+            <a
+              href={whatsappLink("Hi, please share the latest Godrej Reserve Kandivali cost sheet.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 self-start bg-[#25D366] hover:bg-[#1ebe57] text-white text-xs font-semibold uppercase tracking-widest px-5 py-3 rounded transition-colors"
+            >
+              Get Cost Sheet on WhatsApp
+            </a>
+          )}
 
           <hr className="border-[#C8BFA0] w-[30%] mt-2 hidden lg:block" />
         </div>
@@ -113,7 +132,7 @@ export default function EnquirySection({
 
               <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-3">
                 <InputField
-                  id="gaurs-name"
+                  id="enquiry-name"
                   type="text"
                   placeholder="Enter your name *"
                   value={form.name}
@@ -123,7 +142,7 @@ export default function EnquirySection({
                 />
 
                 <InputField
-                  id="gaurs-phone"
+                  id="enquiry-phone"
                   type="tel"
                   placeholder="Phone number *"
                   value={form.phone}
@@ -133,13 +152,33 @@ export default function EnquirySection({
                 />
 
                 <InputField
-                  id="gaurs-email"
+                  id="enquiry-email"
                   type="email"
                   placeholder="Email ID *"
                   value={form.email}
                   onChange={handleChange("email")}
                   error={errors.email}
                 />
+
+                {detailed && (
+                  <>
+                    <SelectField
+                      id="enquiry-configuration"
+                      placeholder="Configuration interested in"
+                      options={CONFIGURATION_OPTIONS}
+                      value={form.configuration}
+                      onChange={handleChange("configuration")}
+                    />
+
+                    <TextareaField
+                      id="enquiry-message"
+                      placeholder="Message"
+                      value={form.message}
+                      onChange={handleChange("message")}
+                      rows={3}
+                    />
+                  </>
+                )}
 
                 {apiError && <p className="text-red-500 text-sm">{apiError}</p>}
 
@@ -155,7 +194,7 @@ export default function EnquirySection({
                       loading ? "opacity-70 cursor-not-allowed" : ""
                     ].join(" ")}
                   >
-                    {loading ? "Submitting..." : "Submit"}
+                    {loading ? "Submitting..." : submitLabel}
                   </button>
                 </div>
               </form>

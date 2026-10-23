@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Project configuration
+
+- Project facts shared across pages, JSON-LD and the footer (MahaRERA numbers, prices, contact numbers, map links) live in `data/project.js`.
+- Set `NEXT_PUBLIC_SITE_URL` (e.g. `https://www.example.com`) to the live domain; it drives canonical URLs, Open Graph tags, JSON-LD and the sitemap. On Vercel the project's production domain is used when it is unset.
+- `public/brochure.pdf` is the file every enquiry form downloads after submission.
+
 ## Getting Started
 
 First, run the development server:

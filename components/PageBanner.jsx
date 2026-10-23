@@ -7,9 +7,9 @@ export default function PageBanner({ title, subtitle, eyebrow }) {
             {eyebrow}
           </p>
         ) : null}
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
           {title}
-        </h2>
+        </h1>
         {subtitle ? (
           <p className="text-gray-600 text-sm mt-4 max-w-2xl mx-auto leading-relaxed">
             {subtitle}

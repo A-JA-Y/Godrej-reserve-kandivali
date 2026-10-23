@@ -42,7 +42,7 @@ function SliderField({ label, min, max, step, value, onChange, pillLabel, rightL
 }
 
 export default function EmiCalculator() {
-  const [loan, setLoan] = useState(3000000);
+  const [loan, setLoan] = useState(59400000);
   const [downPercent, setDownPercent] = useState(20);
   const [years, setYears] = useState(25);
   const [rate, setRate] = useState(7);
@@ -68,10 +68,10 @@ export default function EmiCalculator() {
           EMI Calculator
         </h3>
 
-        {/* Loan Amount */}
+        {/* Property Value (the advance below is deducted to get the loan) */}
         <div className="mb-6">
           <p className="text-[11px] uppercase tracking-widest text-gray-400 mb-1.5">
-            Loan Amount
+            Property Value
           </p>
           <div className="flex items-center border-b-2 border-gray-900 pb-1">
             <input

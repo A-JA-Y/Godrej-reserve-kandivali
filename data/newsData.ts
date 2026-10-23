@@ -32,97 +32,41 @@ export type NewsMeta = {
 
 const NewsData: NewsMeta[] = [
   {
-    id: "news-5",
+    id: "godrej-reserve-construction-update-2026",
 
     /* SEO */
     title:
-      "Greater Noida Circle Rates Hiked for First Time in 9 Years — What It Means for Godrej Golf Links Villa Prices",
-    slug: "greater-noida-circle-rate-hike-godrej-golf-links-2026",
+      "Godrej Reserve Kandivali Construction Update: ~50% Complete, Possession Targeted for June 2030",
+    slug: "godrej-reserve-kandivali-construction-update-2026",
     excerpt:
-      "Greater Noida Authority approved a 3.58% circle rate hike after 9 years, impacting luxury villa pricing, stamp duty, and investment sentiment around Godrej Golf Links.",
+      "Construction at Godrej Properties' 18.6-acre Kandivali East project was about half complete as of July 2026, with possession targeted for June 2030 and a MahaRERA completion date of December 2030.",
     metaTitle:
-      "Greater Noida Circle Rate Hike 2026 | Impact on Godrej Golf Links Villas",
+      "Godrej Reserve Construction Update 2026 | Possession Date & RERA Status",
     metaDescription:
-      "Greater Noida circle rates increased by 3.58% after 9 years. Explore how the revision affects Godrej Golf Links villa prices, registration costs, and real estate investment outlook in 2026.",
+      "Godrej Reserve Kandivali was ~50% complete as of July 2026. Possession is targeted for June 2030; MahaRERA completion date December 2030. Timeline, RERA numbers and what it means for buyers.",
     keywords: [
-      "Greater Noida circle rate hike",
-      "Godrej Golf Links",
-      "Godrej Golf Links villa price",
-      "Greater Noida luxury villas",
-      "Jewar Airport real estate",
-      "Yamuna Expressway property",
-      "Godrej Golf Links Greater Noida",
-      "circle rate 2026",
+      "godrej reserve possession date",
+      "godrej reserve kandivali",
+      "godrej reserve rera number",
+      "godrej reserve construction status",
+      "godrej reserve kandivali east",
     ],
-    canonical:
-      "https://www.godrejgolflink.in/news/greater-noida-circle-rate-hike-godrej-golf-links-2026",
+    canonical: "/news/godrej-reserve-kandivali-construction-update-2026",
 
     /* Display */
-    image: "/news-1.webp",
-    altText:
-      "Luxury villas and golf township at Godrej Golf Links Greater Noida after circle rate hike announcement",
-    date: "2026-05-06",
-    updatedAt: "2026-05-06",
+    image: "/images/godrej-reserve-podium-greens.webp",
+    altText: "Aerial view of the podium greens at Godrej Reserve, Kandivali East — artist's impression",
+    date: "2026-10-23",
+    updatedAt: "2026-10-23",
     author: "Admin",
-    category: "Real Estate News",
-    readTime: "6 min read",
+    category: "Project Update",
+    readTime: "4 min read",
     featured: true,
-    tags: [
-      "greater noida",
-      "circle rate",
-      "godrej golf links",
-      "luxury villas",
-      "real estate",
-      "investment",
-      "yamuna expressway",
-    ],
+    tags: ["godrej reserve", "construction update", "possession", "maharera", "kandivali east"],
 
     /* Extra */
-    location: "Greater Noida",
-    newsType: "Market",
-
-    /* Structured Data */
-    schemaMarkup: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      headline:
-        "Greater Noida Circle Rates Hiked for First Time in 9 Years — What It Means for Godrej Golf Links Villa Prices",
-      description:
-        "Greater Noida Authority approved a 3.58% circle rate hike after 9 years, impacting luxury villa pricing and investment outlook around Godrej Golf Links.",
-      image: ["https://godrejgolflink.in/images/news-1.webp"],
-      datePublished: "2026-05-06",
-      dateModified: "2026-05-06",
-      author: {
-        "@type": "Person",
-        name: "Admin",
-      },
-      publisher: {
-        "@type": "Organization",
-        name: "Your Company",
-        logo: {
-          "@type": "ImageObject",
-          url: "https://godrejgolflink.in/logo.png",
-        },
-      },
-      mainEntityOfPage: {
-        "@type": "WebPage",
-        "@id":
-          "https://godrejgolflink.in/news/greater-noida-circle-rate-hike-godrej-golf-links-2026",
-      },
-      articleSection: "Real Estate",
-      keywords:
-        "Greater Noida circle rate, Godrej Golf Links, luxury villas, Jewar Airport, Yamuna Expressway",
-      about: [
-        {
-          "@type": "Place",
-          name: "Greater Noida",
-        },
-        {
-          "@type": "Residence",
-          name: "Godrej Golf Links",
-        },
-      ],
-    },
+    location: "Kandivali East, Mumbai",
+    newsType: "Project",
   },
 ];
 

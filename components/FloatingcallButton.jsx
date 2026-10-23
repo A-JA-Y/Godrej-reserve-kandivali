@@ -1,13 +1,12 @@
 import { FaPhoneAlt } from "react-icons/fa";
-
-const PHONE = "+917304216059";
+import { PARTNER } from "@/data/project";
 
 export default function FloatingCall() {
   return (
     <a
-      href={`tel:${PHONE}`}
-      aria-label="Call us at +91 73042 16059"
-      title="Call +91 73042 16059"
+      href={`tel:${PARTNER.phone}`}
+      aria-label={`Call us at ${PARTNER.phoneDisplay}`}
+      title={`Call ${PARTNER.phoneDisplay}`}
       className="
         fixed bottom-30 right-6 z-[1000]
         flex items-center justify-center

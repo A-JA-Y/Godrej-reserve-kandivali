@@ -1,17 +1,15 @@
 export const siteNavLinks = [
   { label: "Home", href: "/" },
-  { label: "About Godrej Golf Links", href: "/about-godrej-golf-links" },
-  { label: "Villas & Configurations", href: "/villas-configurations" },
+  { label: "About Godrej Reserve", href: "/about" },
   { label: "Price", href: "/price" },
-  { label: "Floor Plans", href: "/floor-plans" },
-  { label: "Location & Connectivity", href: "/location-connectivity" },
+  { label: "Floor Plan", href: "/floor-plan" },
+  { label: "Master Plan", href: "/master-plan" },
   { label: "Amenities", href: "/amenities" },
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "Location", href: "/location" },
   { label: "About Godrej Properties", href: "/about-godrej-properties" },
   { label: "Blogs", href: "/blogs" },
   { label: "News", href: "/news" },
-  { label: "Crown Residences", href: "/crownresidences", highlight: true },
-
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 export const footerNavLinks = siteNavLinks;

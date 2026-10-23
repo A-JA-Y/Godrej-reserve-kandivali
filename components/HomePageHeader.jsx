@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { siteNavLinks } from "@/data/siteNav";
-import logo150 from "../assets/godrej-logo.webp";
+import logo150 from "../assets/godrej-reserve-logo.webp";
 
 const GOLD = "#C49A2B";
 const GOLD_HOVER = "#A8841E";
@@ -36,10 +36,10 @@ export default function HomePageHeader() {
           >
             <Image
               src={logo150}
-              alt="Godrej Golf Links"
-              priority
-              style={{ width: "110px", height: "auto" }}
-              sizes="110px"
+              alt="Godrej Reserve Kandivali"
+              preload
+              style={{ width: "118px", height: "auto" }}
+              sizes="118px"
             />
           </Link>
 
@@ -132,7 +132,7 @@ export default function HomePageHeader() {
         style={{ width: "min(90vw, 360px)", backgroundColor: "#fff" }}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-[rgba(196,154,43,0.2)]">
-          <Image src={logo150} alt="Godrej Golf Links" style={{ width: "90px", height: "auto" }} sizes="90px" />
+          <Image src={logo150} alt="Godrej Reserve Kandivali" style={{ width: "96px", height: "auto" }} sizes="96px" />
           <button type="button" onClick={() => setOpen(false)} aria-label="Close menu" className="text-[#888] hover:text-[#1a1a1a] text-xl">✕</button>
         </div>
 

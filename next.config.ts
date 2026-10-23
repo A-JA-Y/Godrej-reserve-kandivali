@@ -17,16 +17,6 @@ const nextConfig = {
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
 
   allowedDevOrigins: ["192.168.29.216"],
-
-  async redirects() {
-    return [
-      {
-        source: "/crownresidences",
-        destination: "https://crownresidences.godrejgolflink.in/",
-        permanent: false,
-      },
-    ];
-  },
 };
 
 export default withBundleAnalyzer(withMDX(nextConfig));

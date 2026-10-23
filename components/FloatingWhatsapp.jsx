@@ -1,17 +1,17 @@
 import { FaWhatsapp } from "react-icons/fa";
+import { PARTNER, whatsappLink } from "@/data/project";
 
-const PHONE = "917304216059";
 const MESSAGE =
-  "Hi, I am interested in Godrej Golf Links, Greater Noida. Please share the details.";
+  "Hi, I am interested in Godrej Reserve, Kandivali East. Please share the details.";
 
 export default function FloatingWhatsapp() {
   return (
     <a
-      href={`https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`}
+      href={whatsappLink(MESSAGE)}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with us on WhatsApp at +91 73042 16059"
-      title="+91 73042 16059"
+      aria-label={`Chat with us on WhatsApp at ${PARTNER.phoneDisplay}`}
+      title={PARTNER.phoneDisplay}
       className="
         fixed bottom-6 right-3 z-[1000]
         flex items-center justify-center

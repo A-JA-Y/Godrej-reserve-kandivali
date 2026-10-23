@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { theme } from "@/utils/theme";
-import logo from "@/assets/godrej-logo.webp";
+import logo from "@/assets/godrej-reserve-logo.webp";
 
 export default function ThankYouPage() {
   const router = useRouter();
@@ -29,9 +29,9 @@ export default function ThankYouPage() {
         {/* Brand Logo */}
         <Image
           src={logo}
-          alt="Godrej Golf Links"
+          alt="Godrej Reserve Kandivali"
           width={150}
-          height={133}
+          height={66}
           className="w-auto object-contain mb-6"
           priority
         />

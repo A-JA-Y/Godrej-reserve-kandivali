@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import submitForm from "../api/submitform";
 import { useRouter } from "next/navigation";
-import { FaTimesCircle } from "react-icons/fa";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { reportLeadConversion } from "@/utils/gtagConversion";
 
 const ContactForm = () => {
@@ -86,13 +86,13 @@ const ContactForm = () => {
         {/* LEFT: Text Block */}
         <div className="md:w-1/3 flex-shrink-0">
           <h3 className="text-xl font-bold text-gray-900 leading-tight">
-            Godrej Golf Links - Villas in Greater Noida
+            Godrej Reserve - 3 &amp; 4 BHK in Kandivali East
           </h3>
           <h6 className="text-[#c8952a] mt-1 text-[0.9375rem]">
-            Near Noida International airport
+            Akurli Road, opp. Growel&apos;s 101 Mall
           </h6>
           <p className="text-gray-700 text-sm mt-1">
-            Golf Facing Villas and Apartments
+            3 BHK from ₹5.94 Cr.+* · Possession June 2030 (target)
           </p>
         </div>
 
