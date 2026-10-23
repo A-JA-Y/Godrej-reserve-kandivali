@@ -11,6 +11,8 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
+  // Static export: next build has already copied public/ into out/, so write there
+  outDir: "out",
   exclude: ["/thank-you", "/icon.svg", "/apple-icon.png"],
 
 
