@@ -10,7 +10,7 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import path from "path";
 import fs from "fs";
-import { PARTNER, SITE_NAME, SITE_URL } from "@/data/project";
+import { PARTNER, SITE_NAME, SITE_URL, absolutePageUrl } from "@/data/project";
 
 type Params = Promise<{ slug: string }>;
 
@@ -119,7 +119,7 @@ export default async function BlogDetail({ params }: { params: Params }) {
   const BlogContent = await getBlogContent(slug);
   if (!BlogContent) return notFound();
 
-  const pageUrl = `${SITE_URL}/blogs/${slug}`;
+  const pageUrl = absolutePageUrl(`/blogs/${slug}`);
   const imageUrl = typeof blog.image === "string" ? blog.image : "";
 
   /* ── Breadcrumb Schema ── */
@@ -137,7 +137,7 @@ export default async function BlogDetail({ params }: { params: Params }) {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: `${SITE_URL}/blogs`,
+        item: absolutePageUrl("/blogs"),
       },
       {
         "@type": "ListItem",
