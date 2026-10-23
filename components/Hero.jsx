@@ -25,16 +25,17 @@ const heroImage = {
 const Hero = () => {
   const { openModal } = useModal();
 
-  // Art direction: tall render on phones, wide render from md up
+  // Art direction: tall render on phones, wide render from md up.
+  // srcSet is undefined when images are unoptimized (static export), so fall back to src.
   const {
-    props: { srcSet: desktopSrcSet },
+    props: { src: desktopSrc, srcSet: desktopSrcSet },
   } = getImageProps({ ...heroImage, src: heroDesktop });
   const { props: mobileImageProps } = getImageProps({ ...heroImage, src: heroMobile });
 
   return (
     <section className="relative w-full overflow-hidden bg-[#0d1f17] text-white min-h-[680px] md:min-h-[640px]">
       <picture>
-        <source media="(min-width: 768px)" srcSet={desktopSrcSet} sizes="100vw" />
+        <source media="(min-width: 768px)" srcSet={desktopSrcSet ?? desktopSrc} sizes="100vw" />
         <img
           {...mobileImageProps}
           alt={heroImage.alt}

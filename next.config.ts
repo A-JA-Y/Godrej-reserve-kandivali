@@ -1,3 +1,4 @@
+import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 import bundleAnalyzer from "@next/bundle-analyzer";
 
@@ -12,8 +13,15 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
+  // Static HTML export: `next build` writes the whole site to out/
+  output: "export",
+
+  // The default image optimizer needs a Node server, so serve images as-is
+  images: {
+    unoptimized: true,
+  },
+
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
 
   allowedDevOrigins: ["192.168.29.216"],
