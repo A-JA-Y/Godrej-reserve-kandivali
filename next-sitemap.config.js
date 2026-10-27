@@ -13,6 +13,8 @@ module.exports = {
   generateIndexSitemap: false,
   // Static export: next build has already copied public/ into out/, so write there
   outDir: "out",
+  // Match trailingSlash: true in next.config.ts
+  trailingSlash: true,
   exclude: ["/thank-you", "/icon.svg", "/apple-icon.png"],
 
 

@@ -8,7 +8,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Static export
 
-The site is built as a static export (`output: "export"` in `next.config.ts`). `npm run build` writes the complete site — HTML, assets, `sitemap.xml` and `robots.txt` — to `out/`; upload that folder to any static host.
+The site is built as a static export (`output: "export"` in `next.config.ts`). `npm run build` writes the complete site — HTML, assets, `sitemap.xml` and `robots.txt` — to `out/`; upload that folder to any static host. Pages are exported as folders (`out/about/index.html`, served at `/about/`), so no server rewrite rules are needed.
 
 - Set `NEXT_PUBLIC_SITE_URL` before building: the domain is baked into canonical URLs, Open Graph tags, JSON-LD and the sitemap.
 - Images are served as-is (`images.unoptimized`), so keep new images compressed before adding them.
