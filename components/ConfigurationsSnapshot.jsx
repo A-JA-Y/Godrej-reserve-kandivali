@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import deckLiving from "../assets/deck-living-room.webp";
-import { CONFIGURATIONS } from "@/data/project";
+import { CONFIGURATIONS, PAYMENT_PLAN } from "@/data/project";
 import { useModal } from "./ModalContext";
 
 const linkClass = "text-[#8a6a1f] font-semibold hover:underline";
@@ -62,6 +62,29 @@ export default function ConfigurationsSnapshot() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Payment plan */}
+        <div className="mt-6 bg-white border-t-[3px] border-[#DCA54A] p-5 sm:p-7">
+          <div className="flex flex-wrap items-baseline justify-between gap-2 mb-5">
+            <h3 className="font-bold text-lg text-[#2c1f0e]">Payment Plan</h3>
+            <span className="text-[#8a6a1f] font-semibold tracking-[2px] text-sm">
+              {PAYMENT_PLAN.ratio}
+            </span>
+          </div>
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-1">
+            {PAYMENT_PLAN.milestones.map((milestone) => (
+              <li
+                key={milestone.stage}
+                className="flex items-baseline gap-3 border-b border-[#ece3cd] py-2.5"
+              >
+                <span className="text-[#8a6a1f] font-bold w-10 flex-shrink-0">
+                  {milestone.share}
+                </span>
+                <span className="text-sm text-[#5c4a2a]">{milestone.stage}</span>
+              </li>
+            ))}
+          </ol>
         </div>
 
         <p className="text-xs text-[#5c4a2a] mt-6 leading-relaxed text-center">

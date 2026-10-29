@@ -6,7 +6,7 @@ import ModalWrapper from "@/components/ModalWrapper";
 import EnquireButton from "@/components/EnquireButton";
 import EmiCalculator from "@/components/EmiCalculator";
 import StickyDownloadButton from "@/components/StickyButton";
-import { PARTNER, RERA_WINGS } from "@/data/project";
+import { PARTNER, PAYMENT_PLAN, RERA_WINGS } from "@/data/project";
 import { pageMetadata } from "@/utils/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -94,8 +94,33 @@ export default function PricePage() {
             <h2 className="font-semibold text-gray-900 mb-6 leading-tight">
               Godrej Reserve Payment Plan &amp; Offers
             </h2>
+            <p className="mb-5 leading-relaxed">
+              Godrej Reserve is sold on a{" "}
+              <strong>{PAYMENT_PLAN.ratio} construction-linked payment plan</strong> — 25% through
+              booking, 25% by March 2027 and the balance 50% against the Occupancy Certificate and
+              possession.
+            </p>
+            <div className="overflow-x-auto rounded-lg border border-[#e5dcc5] shadow-sm mb-6">
+              <table className="w-full text-sm text-left">
+                <thead className="bg-[#FAF8F4] text-[#c8922a] uppercase text-xs tracking-wider">
+                  <tr>
+                    <th className="px-5 py-4">Payment</th>
+                    <th className="px-5 py-4">Milestone</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {PAYMENT_PLAN.milestones.map((milestone) => (
+                    <tr key={milestone.stage} className="border-t border-[#e5dcc5]">
+                      <td className="px-5 py-4 font-semibold text-gray-900 whitespace-nowrap">
+                        {milestone.share}
+                      </td>
+                      <td className="px-5 py-4 text-gray-600">{milestone.stage}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
             <ul className="list-disc pl-5 space-y-3 leading-relaxed">
-              <li>Construction-linked payment plan (slab-wise), ~10% at booking.</li>
               <li>
                 Advertised bank-subvention offer: book with 10%, register the Agreement for Sale
                 within 30 days, and pay no EMI for 2 years from the AFS date (offer as published on

@@ -73,25 +73,43 @@ export const CONFIGURATIONS = [
 
 export const SALES_LOUNGE = {
   address: "Sales Lounge, Godrej Reserve, Akurli Road, Kandivali (E), Mumbai 400101",
-  phone: "9513170744",
   grievanceEmail: "grievance.reserve@godrejproperties.com",
 };
 
+// Construction-linked payment plan (25:25:50) as quoted by the channel partner.
+export const PAYMENT_PLAN = {
+  ratio: "25 : 25 : 50",
+  milestones: [
+    { share: "10%", stage: "Booking amount" },
+    { share: "15%", stage: "Within 45 days of booking" },
+    { share: "25%", stage: "March 2027" },
+    { share: "40%", stage: "On application of the Occupancy Certificate (OC)" },
+    { share: "10%", stage: "On intimation of possession" },
+  ],
+};
+
 export const PARTNER = {
-  name: "RealRevenue",
-  phoneDisplay: "+91 73042 16059",
-  phone: "+917304216059",
-  whatsapp: "917304216059",
+  name: "Synergy Real",
+  phoneDisplay: "+91 98201 98173",
+  phone: "+919820198173",
+  whatsapp: "919820198173",
   // The partner's MahaRERA agent registration number; printed in the footer once set.
   reraAgentNo: "",
   address: {
-    streetAddress: "LG 32 1/2, Indira Nagar, Sunderbaug, Kamani, Kurla",
+    streetAddress: "A/1705, Skyvista CHSL, Din Nagar, Municipal School Road, Andheri West",
     addressLocality: "Mumbai",
     addressRegion: "Maharashtra",
-    postalCode: "400070",
+    postalCode: "400053",
     addressCountry: "IN",
   },
 };
+
+// Single-line office address for the footer and contact page.
+export const PARTNER_ADDRESS_LINE = [
+  PARTNER.address.streetAddress,
+  `${PARTNER.address.addressLocality} ${PARTNER.address.postalCode}`,
+  "India",
+].join(", ");
 
 // YouTube ID of an official Godrej Reserve film; the home-page walkthrough shows once set.
 export const WALKTHROUGH_VIDEO_ID = "";

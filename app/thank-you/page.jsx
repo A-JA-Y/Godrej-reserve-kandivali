@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { theme } from "@/utils/theme";
+import { PARTNER } from "@/data/project";
 import logo from "@/assets/godrej-reserve-logo.webp";
 
 export default function ThankYouPage() {
@@ -57,8 +58,14 @@ export default function ThankYouPage() {
         <h1 className={`${theme.fontHeading} text-2xl md:text-3xl font-bold ${theme.textPrimary} mb-3`}>
           Thank you for your enquiry!
         </h1>
-        <p className={`${theme.fontBody} text-gray-600 mb-8`}>
+        <p className={`${theme.fontBody} text-gray-600 mb-4`}>
           Our team will get back to you shortly. You are being redirected to the home page...
+        </p>
+        <p className={`${theme.fontBody} text-gray-600 text-sm mb-8`}>
+          Need to speak to us now? Call{" "}
+          <a href={`tel:${PARTNER.phone}`} className="text-[#c8952a] font-semibold hover:underline">
+            {PARTNER.phoneDisplay}
+          </a>
         </p>
 
         {/* Loading Spinner */}

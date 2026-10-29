@@ -5,7 +5,13 @@ import EnquirySection from "@/components/EnquirySection";
 import EnquireButton from "@/components/EnquireButton";
 import ModalWrapper from "@/components/ModalWrapper";
 import StickyDownloadButton from "@/components/StickyButton";
-import { MAP_EMBED_URL, PARTNER, SALES_LOUNGE, whatsappLink } from "@/data/project";
+import {
+  MAP_EMBED_URL,
+  PARTNER,
+  PARTNER_ADDRESS_LINE,
+  SALES_LOUNGE,
+  whatsappLink,
+} from "@/data/project";
 import { pageMetadata } from "@/utils/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -18,9 +24,9 @@ export const metadata: Metadata = pageMetadata({
 const contactCards = [
   { label: "Visit", value: SALES_LOUNGE.address },
   {
-    label: "Official project enquiry",
-    value: SALES_LOUNGE.phone,
-    href: `tel:+91${SALES_LOUNGE.phone}`,
+    label: "Call / WhatsApp",
+    value: PARTNER.phoneDisplay,
+    href: `tel:${PARTNER.phone}`,
   },
   {
     label: "Grievance (developer)",
@@ -29,8 +35,7 @@ const contactCards = [
   },
   {
     label: `Channel partner — ${PARTNER.name}`,
-    value: `${PARTNER.phoneDisplay} (call / WhatsApp)`,
-    href: `tel:${PARTNER.phone}`,
+    value: PARTNER_ADDRESS_LINE,
   },
 ];
 

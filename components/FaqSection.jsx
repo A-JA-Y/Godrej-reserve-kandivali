@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "What payment plans and offers are available?",
-    a: "A construction-linked plan with ~10% at booking; project loans approved by SBI, HDFC, ICICI, Axis, Kotak and others. A bank-subvention scheme (no EMI for 2 years from the Agreement for Sale) has been advertised by the developer — confirm current offers at enquiry.",
+    a: "A 25:25:50 construction-linked plan — 10% booking amount, 15% within 45 days of booking, 25% in March 2027, 40% on application of the Occupancy Certificate and 10% on intimation of possession. Project loans are approved by SBI, HDFC, ICICI, Axis, Kotak and others, and a bank-subvention scheme (no EMI for 2 years from the Agreement for Sale) has been advertised by the developer — confirm current offers at enquiry.",
   },
 ];
 

@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { footerNavLinks } from "@/data/siteNav";
 import { networkSites } from "@/data/networkSites";
-import { MAHARERA_URL, PARTNER, RERA_WINGS, SITE_URL } from "@/data/project";
+import { MAHARERA_URL, PARTNER, PARTNER_ADDRESS_LINE, RERA_WINGS, SITE_URL } from "@/data/project";
 import JsonLd from "./JsonLd";
 import logoWhite from "@/assets/godrej-reserve-logo-white.webp";
+import partnerLogo from "@/assets/synergy-international-logo-white.webp";
 import qrWing1 from "@/assets/rera-qr/wing-1.png";
 import qrWing2 from "@/assets/rera-qr/wing-2.png";
 import qrWing3 from "@/assets/rera-qr/wing-3.png";
@@ -92,16 +93,7 @@ export default function Footer() {
               <svg className="w-3 h-3 text-[#c9a84c] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
               </svg>
-              LG 32 1/2, Indira Nagar, Sunderbaug, Kamani, Kurla, Mumbai 400070, India
-            </div>
-            <p className="text-[#c9a84c] text-[11px] font-semibold tracking-widest uppercase mb-3">
-              Noida Office
-            </p>
-            <div className="flex items-start gap-1.5 text-gray-300 text-xs mb-3">
-              <svg className="w-3 h-3 text-[#c9a84c] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-              </svg>
-              19th Floor, Etherea, Bhutani Alphathum Tower B, Sector 90, Noida, Uttar Pradesh 201304, India
+              {PARTNER_ADDRESS_LINE}
             </div>
             <a
               href={`tel:${PARTNER.phone}`}
@@ -179,10 +171,18 @@ export default function Footer() {
             are artist&apos;s impressions. Information is compiled from publicly available
             sources; verify all details with the developer and MahaRERA before purchase.
           </p>
-          <p className="text-xs text-gray-400 leading-relaxed mt-2">
-            Authorised channel partner: {PARTNER.name}
-            {PARTNER.reraAgentNo && ` · MahaRERA Agent Reg. No. ${PARTNER.reraAgentNo}`}
-          </p>
+          <div className="flex flex-col items-center gap-2 mt-4">
+            <Image
+              src={partnerLogo}
+              alt={PARTNER.name}
+              className="w-28 h-auto"
+              sizes="112px"
+            />
+            <p className="text-xs text-gray-400 leading-relaxed">
+              Authorised channel partner: {PARTNER.name}
+              {PARTNER.reraAgentNo && ` · MahaRERA Agent Reg. No. ${PARTNER.reraAgentNo}`}
+            </p>
+          </div>
           <hr className="border-t border-gray-700 mt-3" />
         </div>
 
