@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { footerNavLinks } from "@/data/siteNav";
-import { networkSites } from "@/data/networkSites";
 import { MAHARERA_URL, PARTNER, PARTNER_ADDRESS_LINE, RERA_WINGS, SITE_URL } from "@/data/project";
 import JsonLd from "./JsonLd";
+import ProjectNetwork from "@/components/ProjectNetwork";
+import RegulatoryLogos from "@/components/RegulatoryLogos";
 import logoWhite from "@/assets/godrej-reserve-logo-white.webp";
 import partnerLogo from "@/assets/synergy-international-logo-white.webp";
 import qrWing1 from "@/assets/rera-qr/wing-1.png";
@@ -19,7 +20,6 @@ export default function Footer() {
   const half = Math.ceil(footerNavLinks.length / 2);
   const col1 = footerNavLinks.slice(0, half);
   const col2 = footerNavLinks.slice(half);
-  const additionalLinks = networkSites.filter((site) => site.id !== "godrej-reserve-kandivali");
 
   return (
     <footer className="w-full bg-[#141004] border-t border-[rgba(242,242,242,0.11)] px-[30px] py-[20px] font-[400]">
@@ -142,26 +142,21 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Additional Links — sister project websites */}
-        <div className="mb-8">
-          <p className="text-[#c9a84c] text-[11px] font-semibold tracking-widest uppercase mb-3">
-            Additional Links
-          </p>
-          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 lg:gap-x-8 gap-y-2">
-            {additionalLinks.map((site) => (
-              <li key={site.id}>
-                <a
-                  href={site.url}
-                  target="_blank"
-                  rel="noopener"
-                  className="text-gray-300 text-xs hover:text-[#DCA54A] transition-colors"
-                >
-                  {site.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Sister project websites */}
+        <ProjectNetwork
+          currentSiteIds={["godrej-reserve-kandivali"]}
+          className="mb-8 border-t border-white/10 pt-6"
+          headingClassName="text-[#c9a84c] text-[11px] font-semibold tracking-widest uppercase mb-4"
+          regionClassName="text-gray-400 text-[10px] font-semibold tracking-[0.18em] uppercase mb-2"
+          linkClassName="text-gray-300 text-xs leading-snug hover:text-[#DCA54A] transition-colors"
+          domainClassName="block text-[10px] text-gray-400"
+        />
+
+        {/* Regulator and industry body: the MahaRERA wing registrations listed above */}
+        <RegulatoryLogos
+          registration={RERA_WINGS.map((wing) => wing.number)}
+          className="mb-8 justify-center"
+        />
 
         <div className="text-center mb-4">
           <p className="text-xs text-gray-400 leading-relaxed">

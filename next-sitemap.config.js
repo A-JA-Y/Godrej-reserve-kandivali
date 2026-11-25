@@ -15,7 +15,8 @@ module.exports = {
   outDir: "out",
   // Match trailingSlash: true in next.config.ts
   trailingSlash: true,
-  exclude: ["/thank-you", "/icon.svg", "/apple-icon.png"],
+  // App Router icon files (app/icon.png, app/apple-icon.png) build as routes; they are not pages
+  exclude: ["/thank-you", "/icon.png", "/apple-icon.png"],
 
 
   transform: async (config, path) => {

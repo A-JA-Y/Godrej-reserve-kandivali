@@ -55,6 +55,8 @@ export const metadata: Metadata = {
 };
 
 import { ModalProvider } from "@/components/ModalContext";
+import FloatingWhatsapp from "@/components/FloatingWhatsapp";
+import FloatingCall from "@/components/FloatingcallButton";
 
 export default function RootLayout({
   children,
@@ -105,6 +107,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ModalProvider>
           {children}
         </ModalProvider>
+        <FloatingCall />
+        <FloatingWhatsapp />
       </body>
     </html>
   );
