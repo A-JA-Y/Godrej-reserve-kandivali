@@ -25,8 +25,6 @@ const FaqSection = dynamic(() => import("@/components/FaqSection"));
 const EnquirySection = dynamic(() => import("@/components/EnquirySection"));
 const StickyDownloadButton = dynamic(() => import("@/components/StickyButton"));
 const Footer = dynamic(() => import("@/components/Footer"));
-const FloatingWhatsapp = dynamic(()=>import("@/components/FloatingWhatsapp"));
-const FloatingCall = dynamic(()=>import("@/components/FloatingcallButton"));
 
 export const metadata: Metadata = pageMetadata({
   title: "Godrej Reserve Kandivali East, Mumbai | 3 & 4 BHK from ₹5.94 Cr*",
@@ -129,8 +127,6 @@ export default function Home() {
         <EnquirySection />
       </main>
       <StickyDownloadButton />
-      <FloatingCall />
-      <FloatingWhatsapp />
       <Footer />
     </div>
   );
