@@ -1,11 +1,11 @@
 /** @type {import('next-sitemap').IConfig} */
 
 // Same origin logic as SITE_URL in data/project.js: NEXT_PUBLIC_SITE_URL wins,
-// otherwise the Vercel production domain.
+// otherwise the Vercel production domain, otherwise the live domain (used on Cloudflare).
 const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (productionHost ? `https://${productionHost}` : "http://localhost:3000");
+  (productionHost ? `https://${productionHost}` : "https://godrejreserveskandivali.com");
 
 module.exports = {
   siteUrl,

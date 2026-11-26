@@ -9,7 +9,7 @@ const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
 // domain is used when it is not set.
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (productionHost ? `https://${productionHost}` : "http://localhost:3000")
+  (productionHost ? `https://${productionHost}` : "https://godrejreserveskandivali.com")
 ).replace(/\/+$/, "");
 
 // Absolute URL of a page for JSON-LD. Pages are exported as folders (trailingSlash in
